@@ -89,3 +89,21 @@ CONNECT 7200000
 --> secondary DNS address 10.143.147.148
 --> pppd: ��[02]
 ```
+
+## Check the connection
+```
+root@arm:~# ifconfig ppp0
+ppp0      Link encap:Point-to-Point Protocol  
+          inet addr:101.113.8.201  P-t-P:10.64.64.64  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:10 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3 
+          RX bytes:711 (711.0 B)  TX bytes:323 (323.0 B)
+
+root@arm:~# ping www.google.com
+PING www.google.com (74.125.237.144) 56(84) bytes of data.
+64 bytes from syd01s13-in-f16.1e100.net (74.125.237.144): icmp_req=1 ttl=56 time=666 ms
+64 bytes from syd01s13-in-f16.1e100.net (74.125.237.144): icmp_req=2 ttl=56 time=80.2 ms
+64 bytes from syd01s13-in-f16.1e100.net (74.125.237.144): icmp_req=3 ttl=56 time=64.7 ms
+```
